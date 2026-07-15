@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menú Principal (Lobby) -->
+    <div id="lobby" class="panel active">
+        <h1 class="title">Tic Tac Toe 3D</h1>
+        <div class="menu-container">
+            <button id="btn-create" class="btn primary">Crear Partida</button>
+            <div class="divider">o</div>
+            <div class="input-group">
+                <input type="text" id="room-code" placeholder="Código de Sala" maxlength="6">
+                <button id="btn-join" class="btn secondary">Unirse</button>
+            </div>
+            <p id="lobby-msg" class="msg"></p>
+        </div>
+        
+        <div class="project-info">
+            <h2>PROYECTO SEMESTRAL</h2>
+            <p><strong>PROFESOR:</strong> Euclides Serracín</p>
+            <p><strong>ESTUDIANTE:</strong> Edgardo Camargo <br> 8-1021-1738</p>
+            <p><strong>GRUPO:</strong> 1IL141</p>
+        </div>
+    </div>
+
+    <!-- HUD de Juego -->
+    <div id="game-ui" class="panel hidden">
+        <div class="header">
+            <div class="status-bar">
+                <span id="room-display">Sala: ----</span>
+                <span id="turn-display">Turno: Esperando...</span>
+                <span id="my-symbol-display">Tú eres: -</span>
+            </div>
+            <button id="btn-leave" class="btn minimal">Salir</button>
+        </div>
+        
+        <div class="sidebar">
+            <div class="info-box">
+                <h3>Última Jugada</h3>
+                <div class="coords">
+                    <span id="coord-x">X: -</span>
+                    <span id="coord-y">Y: -</span>
+                    <span id="coord-z">Z: -</span>
+                </div>
+            </div>
+            <p id="game-msg" class="msg large-msg"></p>
+            <button id="btn-restart" class="btn primary hidden">Reiniciar Partida</button>
+        </div>
+        
+        <!-- Canvas para WebGL/Three.js -->
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Import Map para resolver dependencias de Three.js (bare imports) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
